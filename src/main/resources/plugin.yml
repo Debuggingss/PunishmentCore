@@ -1,0 +1,24 @@
+name: PunishmentCore
+version: '${project.version}'
+main: dev.debuggings.punishmentcore.PunishmentCore
+authors: [ Debuggings ]
+description: Simple to use punishment plugin.
+commands:
+  kick:
+    usage: /kick <name> <reason>
+  ban:
+    usage: /ban <name> <reason>
+  tempban:
+    usage: /tempban <name> <length> <reason>
+  mute:
+    usage: /mute <name> <length> <reason>
+  warn:
+    usage: /warn <name> <reason>
+  unban:
+    usage: /unban <name>
+  unmute:
+    usage: /unmute <name>
+  phistory:
+    usage: /phistory <name>
+  getpunishment:
+    usage: /getpunishment <id>

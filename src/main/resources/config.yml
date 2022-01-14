@@ -1,0 +1,12 @@
+mute-domain: www.hypixel.net/mutes
+ban-domain: https://hypixel.net/appeal
+mute-commands: [
+  /msg
+  /message
+  /tell
+  /r
+  /reply
+  /whisper
+  /w
+  /me
+]

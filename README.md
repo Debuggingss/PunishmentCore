@@ -32,7 +32,7 @@ A simple to use Spigot punishment plugin that is **NOT** a Hypixel ripoff /s.
 The SQLite file (`punishments.db`) is located in the server's root directory.
 
 ### Screenshots:
-![Warning](https://i.debuggings.dev/9YDibaWV.png)
+![Warning](https://i.debuggings.dev/jk1Meh2Z.png)
 ![Kick](https://i.debuggings.dev/AoTJj4QM.png)
 ![Mute](https://i.debuggings.dev/Q1xVEWEg.png)
 ![Temporary Ban](https://i.debuggings.dev/59AEbNew.png)
@@ -43,15 +43,17 @@ The SQLite file (`punishments.db`) is located in the server's root directory.
 ### Default Configuration:
 ```yaml
 mute-domain: www.hypixel.net/mutes
+warn-domain: www.hypixel.net/rules
+kick-domain: https://hypixel.net/appeal
 ban-domain: https://hypixel.net/appeal
 mute-commands: [
-  /msg
-  /message
-  /tell
-  /r
-  /reply
-  /whisper
-  /w
+  /msg,
+  /message,
+  /tell,
+  /r,
+  /reply,
+  /whisper,
+  /w,
   /me
 ]
 ```

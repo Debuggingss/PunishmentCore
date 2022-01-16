@@ -55,7 +55,10 @@ public class GetPunishment implements CommandExecutor {
             sender.sendMessage("§7Punisher UUID: §f" + punishment.getPunisher());
         sender.sendMessage("§7Reason: §f" + punishment.getReason());
         sender.sendMessage("§7Issued At: §e" + dt.format(new Date(punishment.getIssuedAt() * 1000L)));
-        sender.sendMessage("§7Expires At: §f" + expiresAt);
+        if (
+            punishment.getType() != Punishment.PunishmentType.WARN &&
+            punishment.getType() != Punishment.PunishmentType.KICK
+        ) sender.sendMessage("§7Expires At: §f" + expiresAt);
         sender.sendMessage("§7Revoked: " + (punishment.getRevoked() ? "§aYes" : "§cNo"));
         sender.sendMessage("§8§m--------------------------");
 

@@ -3,6 +3,7 @@ package dev.debuggings.punishmentcore.handler;
 import dev.debuggings.punishmentcore.utils.DatabaseUtils;
 import dev.debuggings.punishmentcore.utils.MessageUtils;
 import dev.debuggings.punishmentcore.utils.Punishment;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -32,6 +33,10 @@ public class BanHandler implements Listener {
                         ));
                         event.setResult(PlayerLoginEvent.Result.KICK_BANNED);
                     }
+                    Bukkit.getConsoleSender().sendMessage(
+                        player.getName() + " (" + event.getAddress() + ") attempted to join while banned. Ban ID: #"
+                            + punishment.getId()
+                    );
                 }
             }
         });

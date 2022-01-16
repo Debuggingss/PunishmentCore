@@ -40,6 +40,25 @@ public class Warn implements CommandExecutor {
 
         reason = new StringBuilder(reason.substring(0, reason.length() - 1));
 
+        String id = Utils.getRandomHexString(8);
+        while (DatabaseUtils.getPunishment(id) != null) {
+            id = Utils.getRandomHexString(8);
+        }
+
+        long issuedAt = System.currentTimeMillis() / 1000L;
+
+        Punishment punishment = new Punishment(
+            Punishment.PunishmentType.WARN,
+            target,
+            (sender instanceof Player) ? ((Player) sender).getUniqueId() : new UUID(0,0),
+            id,
+            reason.toString(),
+            issuedAt,
+            -1
+        );
+
+        DatabaseUtils.addPunishment(punishment);
+
         MessageUtils.sendWarn(targetPlayer, reason.toString());
 
         sender.sendMessage("§aWarned '" + args[0] + "'.");

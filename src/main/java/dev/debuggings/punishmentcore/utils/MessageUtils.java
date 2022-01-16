@@ -11,7 +11,7 @@ public class MessageUtils {
 
     public static String getPermBan(String id, String reason) {
         return "§cYou are permanently banned from this server!\n\n" +
-            "§7Reason: §f" + reason + "\n" +
+            "§7Reason: §f" + reason + ".\n" +
             "§7Find out more: §b§n" + PunishmentCore.instance.getConfig().getString("ban-domain") + "\n\n" +
             "§7Ban ID: §f#" + id + "\n" +
             "§7Sharing your Ban ID may affect the processing of your appeal!";
@@ -21,7 +21,7 @@ public class MessageUtils {
         String timeLeft = calculateTime(expiresAt - (System.currentTimeMillis() / 1000L));
 
         return "§cYou are temporarily banned for §f" + timeLeft + " §cfrom this server!\n\n" +
-            "§7Reason: §f" + reason + "\n" +
+            "§7Reason: §f" + reason + ".\n" +
             "§7Find out more: §b§n" + PunishmentCore.instance.getConfig().getString("ban-domain") + "\n\n" +
             "§7Ban ID: §f#" + id + "\n" +
             "§7Sharing your Ban ID may affect the processing of your appeal!";
@@ -29,17 +29,19 @@ public class MessageUtils {
 
     public static String getKick(String reason) {
         return "§cYou have been kicked!\n\n" +
-            "§7Reason: §f" + reason + "\n" +
-            "§7Find out more: §b§n" + PunishmentCore.instance.getConfig().getString("ban-domain") + "";
+            "§7Reason: §f" + reason + ".\n" +
+            "§7Find out more: §b§n" + PunishmentCore.instance.getConfig().getString("kick-domain") + "";
     }
 
     public static void sendWarn(Player target, String reason) {
         target.sendMessage("");
         target.sendMessage(MessageUtils.CHAT_SEPARATOR);
-        target.sendMessage("§cYou have received a warning for " + reason);
+        target.sendMessage("§fYou have received a WARNING for " + reason + ".");
+        target.sendMessage("§7If you continue breaking the rules you may be muted or banned.");
         target.sendMessage("");
         target.sendMessage("§7Find out more here: §e" +
-            PunishmentCore.instance.getConfig().getString("mute-domain"));
+            PunishmentCore.instance.getConfig().getString("warn-domain"));
+        target.sendMessage("");
         target.sendMessage(MessageUtils.CHAT_SEPARATOR);
         target.sendMessage("");
     }
@@ -49,7 +51,7 @@ public class MessageUtils {
 
         target.sendMessage("");
         target.sendMessage(MessageUtils.CHAT_SEPARATOR);
-        target.sendMessage("§cYou are currently muted for " + reason);
+        target.sendMessage("§cYou are currently muted for " + reason + ".");
         target.sendMessage("§7Your mute will expire in §c" + timeLeft);
         target.sendMessage("");
         target.sendMessage("§7Find out more here: §e" +

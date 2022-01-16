@@ -3,6 +3,10 @@ package dev.debuggings.punishmentcore;
 import dev.debuggings.punishmentcore.commands.*;
 import dev.debuggings.punishmentcore.handler.BanHandler;
 import dev.debuggings.punishmentcore.handler.MuteHandler;
+import dev.debuggings.punishmentcore.utils.BanFilter;
+import net.minecraft.server.v1_8_R3.LoginListener;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,6 +18,8 @@ public final class PunishmentCore extends JavaPlugin {
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
+
+        ((Logger) LogManager.getLogger(LoginListener.class)).addFilter(new BanFilter());
 
         Bukkit.getConsoleSender().sendMessage("§8[§aPunishmentCore§8] §aPlugin loaded.");
 
